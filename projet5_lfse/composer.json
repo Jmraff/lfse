@@ -1,0 +1,13 @@
+{
+    "name": "jean-maryraffegeau/projet5_lfse",
+    "require": {
+        "aminyazdanpanah/handling-file-uploads": "^1.1",
+        "coffeecode/uploader": "^1.0"
+    },
+    "authors": [
+        {
+            "name": "jean-mary raffegeau",
+            "email": "jmraff2@gmail.com"
+        }
+    ]
+}

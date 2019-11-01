@@ -1,15 +1,15 @@
 <?php
 
-require 'controllers/StoryController.php';
+require 'controllers/backend/StoryController.php';
 
 
 try {
 
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'addFinnMain') {
+            addSound();
 
-            addMainSoundFinn($_FILES["finn_main"]["name"], $_FILES["finn_main"]["tmp_name"]);
-            echo ($_FILES["finn_main"]["tmp_name"]);
+
             // header("Location: views/backend/EditStory.php");
         }
     }

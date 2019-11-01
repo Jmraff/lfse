@@ -29,12 +29,12 @@ class UserManager extends DBConnectManager
     }
 
 
-    public function createUser($pseudo, $mail, $pass)
+    public function createUser($pseudo, $mail, $pass, $region)
     {
 
         $db = $this->dbConnect();
-        $insertmbr = $db->prepare("INSERT INTO Users(username, email, pass) VALUES(?, ?, ?)");
-        $insertmbr->execute(array($pseudo, $mail, $pass));
+        $insertmbr = $db->prepare("INSERT INTO Users(username, email, pass, region) VALUES(?, ?, ?, ?)");
+        $insertmbr->execute(array($pseudo, $mail, $pass, $region));
         return $insertmbr;
     }
     public function userConnect()

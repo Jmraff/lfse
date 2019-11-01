@@ -4,11 +4,11 @@ require_once "models/DBConnectModel.php";
 
 class StoryManager extends DBConnectManager
 {
-    public function addSoundFinn($MainSoundFinnName, $MainSoundFinnPath)
+    public function addSoundFinn($MainSoundFinnPath, $MainSoundFinnName)
     {
         $db = $this->dbConnect();
-        $ins = $db->prepare('INSERT INTO StoryContent(idStory, MainSoundFinnName, MainSoundFinnPath) VALUES  ?, ?');
-        $soundPost = $ins->execute(array($MainSoundFinnName, $MainSoundFinnPath));
+        $ins = $db->prepare('INSERT INTO StoryContent(MainSoundFinnPath, MainSoundFinnName) VALUES  ?, ?');
+        $soundPost = $ins->execute(array($MainSoundFinnPath, $MainSoundFinnName));
         return $soundPost;
     }
     public function addSoundPolice($storyId, $MainSoundPoliceName, $MainSoundPolicePath)
