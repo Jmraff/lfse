@@ -1,6 +1,10 @@
 <?php
 // require_once 'models/StoryManager.php';
-require 'UploadController.php';
+require "vendor/autoload.php";
+
+use App\Controllers\backend\Upload;
+
+//
 
 
 // class EditStory extends Upload

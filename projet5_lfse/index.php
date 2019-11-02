@@ -1,7 +1,9 @@
 <?php
 
-require 'controllers/backend/StoryController.php';
+// require 'App/Controllers/backend/StoryController.php';
+require "vendor/autoload.php";
 
+use App\Controllers\backend\UserController;
 
 try {
 
@@ -11,6 +13,10 @@ try {
 
 
             // header("Location: views/backend/EditStory.php");
+        } elseif ($_GET['action'] == 'createUser') {
+            $newUser = new UserController;
+            $addUser = $newUser->createUser();
+            header("Location: App/Views/Frontend/Home.php");
         }
     }
 } catch (Exception $e) {

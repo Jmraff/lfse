@@ -1,6 +1,11 @@
 <?php
 
-require_once "models/DBConnectModel.php";
+namespace App\Models;
+
+
+use App\Models\DBConnectManager;
+
+
 
 class UserManager extends DBConnectManager
 {

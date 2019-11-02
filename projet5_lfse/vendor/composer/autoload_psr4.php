@@ -6,27 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
-    'Symfony\\Component\\Process\\' => array($vendorDir . '/symfony/process'),
-    'Symfony\\Component\\Filesystem\\' => array($vendorDir . '/symfony/filesystem'),
-    'Streaming\\' => array($vendorDir . '/aminyazdanpanah/php-ffmpeg-video-streaming/src'),
-    'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
-    'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
-    'Psr\\Cache\\' => array($vendorDir . '/psr/cache/src'),
-    'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
-    'MicrosoftAzure\\Storage\\Common\\' => array($vendorDir . '/microsoft/azure-storage-common/src/Common'),
-    'MicrosoftAzure\\Storage\\Blob\\' => array($vendorDir . '/microsoft/azure-storage-blob/src/Blob'),
-    'JmesPath\\' => array($vendorDir . '/mtdowling/jmespath.php/src'),
-    'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
-    'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
-    'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
-    'Google\\Cloud\\Storage\\' => array($vendorDir . '/google/cloud-storage/src'),
-    'Google\\Cloud\\Core\\' => array($vendorDir . '/google/cloud-core/src'),
-    'Google\\CRC32\\' => array($vendorDir . '/google/crc32/src'),
-    'Google\\Auth\\' => array($vendorDir . '/google/auth/src'),
-    'Firebase\\JWT\\' => array($vendorDir . '/firebase/php-jwt/src'),
-    'Doctrine\\Common\\Cache\\' => array($vendorDir . '/doctrine/cache/lib/Doctrine/Common/Cache'),
-    'CoffeeCode\\Uploader\\' => array($vendorDir . '/coffeecode/uploader/src'),
-    'Aws\\' => array($vendorDir . '/aws/aws-sdk-php/src'),
-    'AYazdanpanah\\SaveUploadedFiles\\' => array($vendorDir . '/aminyazdanpanah/handling-file-uploads/src'),
+    'App\\' => array($baseDir . '/App'),
 );

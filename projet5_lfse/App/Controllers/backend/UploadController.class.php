@@ -1,5 +1,8 @@
 <?php
 
+namespace App\Controllers\backend;
+
+
 class Upload
 {
 
@@ -18,7 +21,7 @@ class Upload
                 if ($fileSize < 8000000) {
 
 
-                    $fileDestination = '/Users/jean-maryraffegeau/Documents/mampfolders/lfse/projet5_lfse/app/uploads/' . $fileName;
+                    $fileDestination = '/Users/jean-maryraffegeau/Documents/mampfolders/lfse/projet5_lfse/App/uploads/' . $fileName;
 
                     $result = move_uploaded_file($fileTmpName, $fileDestination);
                     var_dump($result);

@@ -1,6 +1,6 @@
 <?php
 
-require_once "models/DBConnectModel.php";
+require_once "DBConnectModel.php";
 
 class StoryManager extends DBConnectManager
 {
