@@ -22,4 +22,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('HomeTemplate.php'); ?>
+<?php require('AdminTemplate.php'); ?>

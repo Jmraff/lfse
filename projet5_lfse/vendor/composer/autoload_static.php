@@ -31,9 +31,13 @@ class ComposerStaticInit280aeea8f297d2fe632502a8d0dea57f
     );
 
     public static $classMap = array (
-        'App\\Controllers\\backend\\Upload' => __DIR__ . '/../..' . '/App/Controllers/backend/UploadController.class.php',
-        'App\\Controllers\\backend\\UserController' => __DIR__ . '/../..' . '/App/Controllers/frontend/UserController.php',
+        'App\\Controllers\\Backend\\BackendController' => __DIR__ . '/../..' . '/App/Controllers/Backend/BackendController.php',
+        'App\\Controllers\\Backend\\StoryController' => __DIR__ . '/../..' . '/App/Controllers/Backend/StoryController.php',
+        'App\\Controllers\\Backend\\Upload' => __DIR__ . '/../..' . '/App/Controllers/Backend/UploadController.class.php',
+        'App\\Controllers\\Frontend\\HomeController' => __DIR__ . '/../..' . '/App/Controllers/Frontend/HomeController.php',
+        'App\\Controllers\\Frontend\\UserController' => __DIR__ . '/../..' . '/App/Controllers/Frontend/UserController.php',
         'App\\Models\\DBConnectManager' => __DIR__ . '/../..' . '/App/Models/DBConnectModel.php',
+        'App\\Models\\StoryManager' => __DIR__ . '/../..' . '/App/Models/StoryManager.php',
         'App\\Models\\UserManager' => __DIR__ . '/../..' . '/App/Models/UserManager.php',
         'JasonGrimes\\Paginator' => __DIR__ . '/..' . '/jasongrimes/paginator/src/JasonGrimes/Paginator.php',
     );

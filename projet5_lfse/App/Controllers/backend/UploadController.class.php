@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\backend;
+namespace App\Controllers\Backend;
 
 
 class Upload
@@ -24,7 +24,7 @@ class Upload
                     $fileDestination = '/Users/jean-maryraffegeau/Documents/mampfolders/lfse/projet5_lfse/App/uploads/' . $fileName;
 
                     $result = move_uploaded_file($fileTmpName, $fileDestination);
-                    var_dump($result);
+
                     echo "Well Done" . $fileDestination;
                 } else {
                     echo "Le fichier dépasse la taille autorisée";

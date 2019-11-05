@@ -1,4 +1,4 @@
-<?php ?>
+<?php ob_start(); ?>
 
 
 <h1>Edition d'une histoire</h1>
@@ -14,4 +14,6 @@
 
 <br />
 
-<?php ob_start(); ?>
+<?php $content = ob_get_clean(); ?>
+
+<?php require('AdminTemplate.php'); ?>

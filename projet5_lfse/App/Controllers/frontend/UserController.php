@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\backend;
+namespace App\Controllers\Frontend;
 
 require "vendor/autoload.php";
 
@@ -8,6 +8,23 @@ use App\Models\UserManager;
 
 class UserController
 {
+    public function home()
+    {
+
+
+        require 'App/Views/Frontend/Home.php';
+    }
+
+    public function register()
+    {
+
+        require 'App/Views/Frontend/SignUpView.php';
+    }
+    public function connect()
+    {
+
+        require 'App/Views/Frontend/SignInView.php';
+    }
 
 
     public function disconnect()
@@ -28,7 +45,7 @@ class UserController
             $mail = htmlspecialchars($_POST['mail']);
             $mail2 = htmlspecialchars($_POST['mail2']);
             $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-            $region = htmlspecialchars('locality');
+            $region = htmlspecialchars($_POST['locality']);
 
 
 
@@ -52,8 +69,6 @@ class UserController
                             if (($reqmail == 0) && ($reqpseudo == 0)) {
                                 if ($_POST['pass'] == $_POST['pass2']) {
                                     $usermanager->createUser($pseudo, $mail, $pass, $region);
-
-                                    // header("Location: index.php?action=home");
                                 } else {
                                     $error = "Vos mots de passe ne correspondent pas !";
                                 }
@@ -76,7 +91,7 @@ class UserController
             } else {
                 $error = "Tous les champs doivent être complétés !";
             }
-            require 'App/Views/Frontend/SignUpView.php';
+            // require 'App/Views/Frontend/SignUpView.php';
         }
     }
     public function userConnect()
@@ -97,25 +112,30 @@ class UserController
                 $userexist = $checkuser->rowCount();
 
 
+
                 if ($userexist != 0) {
                     $userCheck = $checkuser->fetch();
 
+
                     $mdpconnect = password_verify($_POST['passconnect'], $userCheck['pass']);
+
+
 
                     if ($mdpconnect == true) {
 
-                        $_SESSION['id'] = $userCheck['id'];
+
+                        $_SESSION['userId'] = $userCheck['userId'];
                         $_SESSION['username'] = $userCheck['username'];
                         $_SESSION['email'] = $userCheck['email'];
                         $_SESSION['isAdmin'] = $userCheck['isAdmin'];
                     }
                 } else {
-                    echo   "Mauvais mail ou mot de passe !";
+                    $error  = "Mauvais mail ou mot de passe !";
                 }
             } else {
-                echo  "Tous les champs doivent être complétés !";
+                $error =  "Tous les champs doivent être complétés !";
             }
         }
-        //require 'views/frontend/frontendTemplate.php';
+        // include 'App/Views/Frontend/SignInView.php';
     }
 }

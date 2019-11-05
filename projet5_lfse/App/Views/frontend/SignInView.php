@@ -8,26 +8,29 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-9 col-lg-8 mx-auto">
-                            <h3 class="login-heading mb-4">Welcome back!</h3>
-                            <form>
-                                <div class="form-label-group">
-                                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                                    <label for="inputEmail">Email address</label>
-                                </div>
-
+                            <h3 class="login-heading mb-4">Bienvenue</h3>
+                            <form method="post" action="index.php?action=userConnect">
 
                                 <div class="form-label-group">
-                                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                                    <label for="inputPassword">Password</label>
+                                    <input type="email" id="inputEmail" class="form-control" name="pseudoconnect" placeholder="Email" required autofocus>
+                                    <label for="inputEmail">Email</label>
                                 </div>
 
-                                <div class="custom-control custom-checkbox mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                    <label class="custom-control-label" for="customCheck1">Remember password</label>
+
+                                <div class="form-label-group">
+                                    <input type="password" id="inputPassword" name="passconnect" class="form-control" placeholder="Mot de Passe" required>
+                                    <label for="inputPassword">Mot de Passe</label>
                                 </div>
-                                <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign in</button>
+
+
+                                <input class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" name="formconnection" type="submit">
                                 <div class="text-center">
                                     <a class="small" href="#">Forgot password?</a></div>
+                                <?php
+                                if (isset($error)) {
+                                    echo '<font color="red">' . $error . "</font>";
+                                }
+                                ?>
                             </form>
                         </div>
                     </div>
@@ -37,6 +40,6 @@
     </div>
 </div>
 
-<?php $content = ob_get_clean(); ?>
 
+<?php $content = ob_get_clean(); ?>
 <?php require('HomeTemplate.php'); ?>
