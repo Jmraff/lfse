@@ -10,7 +10,7 @@ class Upload
 
     public function newUpload($file, $fileName, $fileTmpName, $fileSize, $fileError, $fileType, $fileExt, $fileActualExt, $allowed)
     {
-        var_dump($fileActualExt, $allowed);
+
 
 
 
@@ -25,7 +25,8 @@ class Upload
 
                     $result = move_uploaded_file($fileTmpName, $fileDestination);
 
-                    echo "Well Done" . $fileDestination;
+                    return $fileDestination;
+                    // echo "Well Done" . $fileDestination;
                 } else {
                     echo "Le fichier dépasse la taille autorisée";
                 }

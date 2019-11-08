@@ -5,6 +5,8 @@ require_once "vendor/autoload.php";
 use App\Controllers\Frontend\UserController;
 use App\Controllers\Backend\BackendController;
 use App\Controllers\Backend\StoryController;
+use App\Controllers\Backend\Upload;
+
 
 try {
     $action = $_GET['action'];
@@ -24,7 +26,7 @@ try {
         } elseif ($action == 'connect') {
             $connect = new UserController;
             $connection = $connect->connect();
-        } elseif ($_GET['action'] == 'createUser') {
+        } elseif ($action == 'createUser') {
             $newUser = new UserController;
             $addUser = $newUser->createUser();
             header('location: index.php?action=connect');
@@ -73,31 +75,55 @@ try {
             } elseif ($_GET['action'] == 'editStory') {
                 $edit = new BackendController;
                 $editStory = $edit->editStoryPage();
+                var_dump($_GET['StoryId']);
             } elseif ($action == 'addFinnMain') {
                 $addSound = new StoryController;
-                $addNewSound = $addSound->addMainSoundFynn($fileDestination, $fileName, $_GET['StoryId']);
+                $addNewSound = $addSound->addMainSoundFynn($addSound->fileDestination, $_FILES['file']['name'], $_GET['StoryId']);
+            } elseif ($action == 'addIsolate1') {
+                $addSound = new StoryController;
+                $addNewSound = $addSound->addSoundIsolate1($addSound->fileDestination, $_FILES['file']['name'], $_GET['StoryId']);
+            } elseif ($action == 'addIsolate2') {
+                $addSound = new StoryController;
+                $addNewSound = $addSound->addSoundIsolate2($addSound->fileDestination, $_FILES['file']['name'], $_GET['StoryId']);
+            } elseif ($action == 'addIsolate3') {
+                $addSound = new StoryController;
+                $addNewSound = $addSound->addSoundIsolate3($addSound->fileDestination, $_FILES['file']['name'], $_GET['StoryId']);
+            } elseif ($action == 'addPolice') {
+                $addSound = new StoryController;
+                $addNewSound = $addSound->addSoundPolice($addSound->fileDestination, $_FILES['file']['name'], $_GET['StoryId']);
+            } elseif ($action == 'addIsolate4') {
+                $addSound = new StoryController;
+                $addNewSound = $addSound->addSoundIsolate4($addSound->fileDestination, $_FILES['file']['name'], $_GET['StoryId']);
+            } elseif ($action == 'addIsolate5') {
+                $addSound = new StoryController;
+                $addNewSound = $addSound->addSoundIsolate5($addSound->fileDestination, $_FILES['file']['name'], $_GET['StoryId']);
+            } elseif ($action == 'addIsolate6') {
+                $addSound = new StoryController;
+                $addNewSound = $addSound->addSoundIsolate6($addSound->fileDestination, $_FILES['file']['name'], $_GET['StoryId']);
+            } elseif ($action == 'updateQuestion1') {
+                $question = new StoryController;
+                $newQuestion = $question->addQuestion1($_POST['new_question1'], $_POST['new_answer1'], $_GET['StoryId']);
+            } elseif ($action == 'updateQuestion2') {
+                $question = new StoryController;
+                $newQuestion = $question->addQuestion1($_POST['new_question2'], $_POST['new_answer2'], $_GET['StoryId']);
+            } elseif ($action == 'updateQuestion3') {
+                $question = new StoryController;
+                $newQuestion = $question->addQuestion1($_POST['new_question3'], $_POST['new_answer3'], $_GET['StoryId']);
+            } elseif ($action == 'updateQuestion4') {
+                $question = new StoryController;
+                $newQuestion = $question->addQuestion1($_POST['new_question4'], $_POST['new_answer4'], $_GET['StoryId']);
+            } elseif ($action == 'updateFinalQuestion') {
+                $question = new StoryController;
+                $newQuestion = $question->addQuestion1($_POST['final_question'], $_POST['final_answer'], $_GET['StoryId']);
+            } elseif ($action == 'addVideo') {
+                $addVideo = new StoryController;
+                $addNewVideo = $addVideo->addAnswerVideo($addVideo->fileDestination, $_FILES['file']['name'], $_GET['StoryId']);
+            } elseif ($action == 'publish') {
+
+
+                $publish = new StoryController;
+                $makeAvailable = $publish->publish($_GET['StoryId']);
             }
-            //         addSound();
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // if (isset($_GET['action'])) {
-            //     if ($_GET['action'] == 'addFinnMain') {
-            //         addSound();
-
-
-            //         // header("Location: views/backend/EditStory.php");
-
         }
     }
 } catch (Exception $e) {
