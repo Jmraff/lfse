@@ -12,7 +12,7 @@
         <div class="jumbotron">
             <h1> <?= htmlspecialchars($data['storyName']) ?></h1>
 
-            <p><a href="index.php?action=editStory&StoryId=<?= $data['StoryId'] ?>" class="btn btn-primary btn-large">Lire la suite »</a> </p>
+            <p><a href="index.php?action=editStory&StoryId=<?= $data['StoryId'] ?>" class="btn btn-primary btn-large">Modifier »</a> </p>
         </div>
 
 

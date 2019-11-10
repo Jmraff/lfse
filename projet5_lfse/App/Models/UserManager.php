@@ -50,28 +50,48 @@ class UserManager extends DBConnectManager
         $userexist = $reqpass->rowCount();
         return $reqpass;
     }
-
-    // Unused function
-
-    //     public function connected($userId)
-    //     {
-    //         $db = $this->dbConnect();
-    //         $req = $db->prepare('SELECT admin FROM Users WHERE id = ?');
-    //         $req->execute(array($userId));
-    //         $connected = $req->fetch();
-
-    //         return $connected;
-    //     }
+    public function nbUsers()
+    {
+        $db = $this->dbConnect();
+        $nbUsers = $db->prepare('SELECT userId AS nbUsers FROM Users where isAdmin = 0');
+        $nbUsers->execute();
+        $nbTotalUsers = $nbUsers->rowCount();
+        var_dump($nbTotalUsers);
 
 
-    // will be used to list users in adminpane
 
-    // public function listUsers($mail)
-    // {
+        return $nbTotalUsers;
+    }
 
-    //     $db = $this->dbConnect();
-    //     $reqmailusers = $db->prepare("SELECT * FROM Users WHERE email = ?");
-    //     $reqmailusers->execute(array($mail));
-    //     return $reqmailusers;
-    // }
+
+    public function listUsers($start, $usersPerPage)
+    {
+        $db = $this->dbConnect();
+        // $usersPerPage = 10;
+
+
+
+
+        // $totalPages = ceil($nbUsers / $usersPerPage);
+
+
+
+        // $currentPage = $_GET['page'];
+
+        // $start = ($currentPage - 1) * $usersPerPage;
+
+        $reqmailusers = $db->prepare('SELECT * FROM Users WHERE isAdmin = 0 ORDER BY email DESC LIMIT ' . $start . ',' . $usersPerPage);
+        $reqmailusers->execute(array());
+
+
+
+        return $reqmailusers;
+    }
+    public function deleteUser($userId)
+    {
+
+        $db = $this->dbConnect();
+        $req = $db->prepare('DELETE FROM Users WHERE userId = ?');
+        $req->execute(array($userId));
+    }
 }

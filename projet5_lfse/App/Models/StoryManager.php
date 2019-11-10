@@ -17,6 +17,14 @@ class StoryManager extends DBConnectManager
 
         return $list;
     }
+    public function displaySingleStory($displaytoryId)
+    {
+        $db = $this->dbConnect();
+        $display_story = $db->prepare('SELECT * FROM StoryContent WHERE StoryId = ?');
+        $display_story->execute(array($displaytoryId));
+        $displayStory = $display_story->fetch();
+        return $displayStory;
+    }
     public function createStory($storyName)
     {
 
@@ -55,7 +63,7 @@ class StoryManager extends DBConnectManager
 
         $ins = $db->prepare('UPDATE StoryContent SET MainSoundPolicePath = ?, MainSoundPoliceName = ? WHERE StoryId = ?');
         $soundPost = $ins->execute(array($MainSoundPolicePath, $MainSoundPoliceName, $updateStoryId));
-        var_dump($MainSoundPolicePath, $MainSoundPoliceName, $updateStoryId);
+
         return $soundPost;
     }
     public function addSoundIsolate1($isolateSound1Path, $isolateSound1Name, $updateStoryId)

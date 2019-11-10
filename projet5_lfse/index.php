@@ -38,7 +38,9 @@ try {
 
                 header('location: index.php?action=adminHome'); // if admin is connected, redirect to admin Homepage
             } else {
-                echo ('great');
+
+                header("Location: index.php?action=home"); // if not redirect to user homepage
+
             }
             // header("Location: index.php?action=home"); // if not redirect to user homepage
 
@@ -72,10 +74,15 @@ try {
             } elseif ($action == 'adminListStories') {
                 $listStories = new BackendController;
                 $adminList = $listStories->listStories();
+            } elseif ($action == 'adminListUsers') {
+                $listUsers = new BackendController;
+                $listAllUsers = $listUsers->listUsers();
+            } elseif ($action == 'deleteUser') {
+                $deleteUser = new BackendController;
+                $delete = $deleteUser->deleteUser($_GET['userId']);
             } elseif ($_GET['action'] == 'editStory') {
                 $edit = new BackendController;
                 $editStory = $edit->editStoryPage();
-                var_dump($_GET['StoryId']);
             } elseif ($action == 'addFinnMain') {
                 $addSound = new StoryController;
                 $addNewSound = $addSound->addMainSoundFynn($addSound->fileDestination, $_FILES['file']['name'], $_GET['StoryId']);
@@ -124,6 +131,8 @@ try {
                 $publish = new StoryController;
                 $makeAvailable = $publish->publish($_GET['StoryId']);
             }
+        } else {
+            throw new Exception("Cet page est réservée à l'administrateur");
         }
     }
 } catch (Exception $e) {

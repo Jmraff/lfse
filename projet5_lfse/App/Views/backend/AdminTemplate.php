@@ -25,7 +25,7 @@
             <div class="list-group list-group-flush">
                 <a href="index.php?action=newStory" class="list-group-item list-group-item-action bg-light">Ajouter une histoire</a>
                 <a href="index.php?action=adminListStories" class="list-group-item list-group-item-action bg-light">Modifier une histoire</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Gérer les utilisateurs</a>
+                <a href="index.php?action=adminListUsers&page=1" class="list-group-item list-group-item-action bg-light">Gérer les utilisateurs</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Tester une histoire</a>
 
             </div>
