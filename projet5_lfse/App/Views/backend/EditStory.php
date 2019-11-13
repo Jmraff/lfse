@@ -20,7 +20,7 @@
 
     <?php if ($displayEditStory['published'] == 1) : ?><p>L'histoire est en ligne<?php else : ?><p>L'histoire n'est pas en ligne<?php endif;
 
-                                                                                                                                    ?>
+                                                                                                                                ?>
 </div>
 
 
@@ -82,7 +82,7 @@
 
     <input id="question" name="new_answer1" placeholder="Réponse 1" value="<?= $displayEditStory['answer1'] ?>"><br />
 
-    <input type=" submit" name="submit_question1" value="Valider la question" />
+    <input type="submit" name="submit_question1" value="Valider la question" />
 </form>
 
 <br />

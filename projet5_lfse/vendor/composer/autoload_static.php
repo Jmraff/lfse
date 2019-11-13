@@ -34,6 +34,7 @@ class ComposerStaticInit280aeea8f297d2fe632502a8d0dea57f
         'App\\Controllers\\Backend\\BackendController' => __DIR__ . '/../..' . '/App/Controllers/Backend/BackendController.php',
         'App\\Controllers\\Backend\\StoryController' => __DIR__ . '/../..' . '/App/Controllers/Backend/StoryController.php',
         'App\\Controllers\\Backend\\Upload' => __DIR__ . '/../..' . '/App/Controllers/Backend/UploadController.class.php',
+        'App\\Controllers\\Frontend\\GameController' => __DIR__ . '/../..' . '/App/Controllers/Frontend/GameController.php',
         'App\\Controllers\\Frontend\\HomeController' => __DIR__ . '/../..' . '/App/Controllers/Frontend/HomeController.php',
         'App\\Controllers\\Frontend\\UserController' => __DIR__ . '/../..' . '/App/Controllers/Frontend/UserController.php',
         'App\\Models\\DBConnectManager' => __DIR__ . '/../..' . '/App/Models/DBConnectModel.php',

@@ -45,9 +45,9 @@ class UserManager extends DBConnectManager
     public function userConnect()
     {
         $db = $this->dbConnect();
-        $reqpass = $db->prepare("SELECT * FROM Users WHERE email = ? ");
+        $reqpass = $db->prepare("SELECT userId, username, email, pass, isAdmin FROM Users WHERE email = ? ");
         $reqpass->execute(array(htmlspecialchars($_POST['pseudoconnect'])));
-        $userexist = $reqpass->rowCount();
+        // $userexist = $reqpass->rowCount();
         return $reqpass;
     }
     public function nbUsers()

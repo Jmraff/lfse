@@ -114,23 +114,31 @@ class UserController
 
 
                 if ($userexist != 0) {
+
                     $userCheck = $checkuser->fetch();
+
+
 
 
                     $mdpconnect = password_verify($_POST['passconnect'], $userCheck['pass']);
 
 
 
+
                     if ($mdpconnect == true) {
+
 
 
                         $_SESSION['userId'] = $userCheck['userId'];
                         $_SESSION['username'] = $userCheck['username'];
                         $_SESSION['email'] = $userCheck['email'];
                         $_SESSION['isAdmin'] = $userCheck['isAdmin'];
+                        var_dump($_SESSION['userId'], $_SESSION['username'],  $_SESSION['email'], $_SESSION['isAdmin']);
+                    } else {
+                        $error  = "Le mot de passe est incorrect!";
                     }
                 } else {
-                    $error  = "Mauvais mail ou mot de passe !";
+                    $error  = "Le mail n'existe pas !";
                 }
             } else {
                 $error =  "Tous les champs doivent être complétés !";

@@ -5,7 +5,7 @@ require_once "vendor/autoload.php";
 use App\Controllers\Frontend\UserController;
 use App\Controllers\Backend\BackendController;
 use App\Controllers\Backend\StoryController;
-use App\Controllers\Backend\Upload;
+use App\Controllers\Frontend\GameController;
 
 
 try {
@@ -31,6 +31,8 @@ try {
             $addUser = $newUser->createUser();
             header('location: index.php?action=connect');
         } elseif ($action == 'userConnect') {
+
+
             $checkConnect = new UserController;
 
             $connectUser = $checkConnect->userConnect();
@@ -45,17 +47,28 @@ try {
             // header("Location: index.php?action=home"); // if not redirect to user homepage
 
         } elseif ($action == 'disconnect') {
-            if (isset($_SESSION['userId'])) {
-                $kill = new UserController;
+            // if (isset($_SESSION['userId'])) {
+            $kill = new UserController;
 
-                $sessionKill = $kill->disconnect();
-                header("Location: index.php?action=home");
+            $sessionKill = $kill->disconnect();
+            header("Location: index.php?action=home");
+            // }
+        } elseif ($action == 'listStories') {
+
+            $displayStories = new GameController;
+            $display_stories = $displayStories->listGames();
+        } elseif (($_SESSION['isAdmin'] == '0') && (!empty($_SESSION['userId']))) {
+            if ($action == 'displayStory') {
+                if (isset($_GET['StoryId']) && !empty($_GET['StoryId'])) {
+                    $displayStory = new GameController;
+                    $display_story = $displayStory->displayStory($_GET['StoryId']);;
+                } else {
+                    throw new Exception("Erreur : aucun identifiant de billet envoyé");
+                }
+            } elseif ($action == 'verifyAnswer') {
+                $verify = new GameController;
+                $answerCheck = $verify->verifyAnswers($_GET['StoryId']);
             }
-
-
-
-
-
 
             // Admin Routes
         } elseif ($_SESSION['isAdmin'] == '1') {
@@ -112,16 +125,16 @@ try {
                 $newQuestion = $question->addQuestion1($_POST['new_question1'], $_POST['new_answer1'], $_GET['StoryId']);
             } elseif ($action == 'updateQuestion2') {
                 $question = new StoryController;
-                $newQuestion = $question->addQuestion1($_POST['new_question2'], $_POST['new_answer2'], $_GET['StoryId']);
+                $newQuestion = $question->addQuestion2($_POST['new_question2'], $_POST['new_answer2'], $_GET['StoryId']);
             } elseif ($action == 'updateQuestion3') {
                 $question = new StoryController;
-                $newQuestion = $question->addQuestion1($_POST['new_question3'], $_POST['new_answer3'], $_GET['StoryId']);
+                $newQuestion = $question->addQuestion3($_POST['new_question3'], $_POST['new_answer3'], $_GET['StoryId']);
             } elseif ($action == 'updateQuestion4') {
                 $question = new StoryController;
-                $newQuestion = $question->addQuestion1($_POST['new_question4'], $_POST['new_answer4'], $_GET['StoryId']);
+                $newQuestion = $question->addQuestion4($_POST['new_question4'], $_POST['new_answer4'], $_GET['StoryId']);
             } elseif ($action == 'updateFinalQuestion') {
                 $question = new StoryController;
-                $newQuestion = $question->addQuestion1($_POST['final_question'], $_POST['final_answer'], $_GET['StoryId']);
+                $newQuestion = $question->addFinalAnswer($_POST['final_question'], $_POST['final_answer'], $_GET['StoryId']);
             } elseif ($action == 'addVideo') {
                 $addVideo = new StoryController;
                 $addNewVideo = $addVideo->addAnswerVideo($addVideo->fileDestination, $_FILES['file']['name'], $_GET['StoryId']);
@@ -131,9 +144,10 @@ try {
                 $publish = new StoryController;
                 $makeAvailable = $publish->publish($_GET['StoryId']);
             }
-        } else {
-            throw new Exception("Cet page est réservée à l'administrateur");
         }
+        // else {
+        //     throw new Exception("Cet page est réservée à l'administrateur");
+        // }
     }
 } catch (Exception $e) {
     echo 'Erreur : ' . $e->getMessage();

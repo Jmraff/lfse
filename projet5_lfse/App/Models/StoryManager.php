@@ -17,13 +17,21 @@ class StoryManager extends DBConnectManager
 
         return $list;
     }
-    public function displaySingleStory($displaytoryId)
+    public function displaySingleStory($StoryId)
     {
         $db = $this->dbConnect();
         $display_story = $db->prepare('SELECT * FROM StoryContent WHERE StoryId = ?');
-        $display_story->execute(array($displaytoryId));
+        $display_story->execute(array($StoryId));
         $displayStory = $display_story->fetch();
         return $displayStory;
+    }
+    public function checkAnswers($StoryId)
+    {
+        $db = $this->dbConnect();
+        $checkAnswers = $db->prepare('SELECT answer1, answer2, answer3, answer4, finalAnswer FROM StoryContent WHERE StoryId = ?');
+        $checkAnswers->execute(array($StoryId));
+        $getAnswers = $checkAnswers->fetch();
+        return $getAnswers;
     }
     public function createStory($storyName)
     {
