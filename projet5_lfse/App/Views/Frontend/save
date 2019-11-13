@@ -1,0 +1,393 @@
+public function verifyAnswer1($storyId)
+    {
+
+        $getAnswers = new StoryManager;
+        $answers = $getAnswers->checkAnswers($_GET['StoryId']);
+        $transliterator = \Transliterator::create('NFD; [:Nonspacing Mark:] Remove; NFC');
+        $checkAnswer1 = $transliterator->transliterate($answers['answer1']);
+        $userAnswer1 = $transliterator->transliterate($_POST['dataPost1']);
+
+
+        if (isset($_POST['dataPost1'])) {
+            echo ($_POST['dataPost1']);
+
+            if ($checkAnswer1 == $userAnswer1) {
+
+                echo "super1";
+            } else {
+
+                echo "raté1";
+            }
+            return true;
+        } else {
+            echo ('loupé1');
+            return false;
+        }
+    }
+
+
+
+    public function verifyAnswer2($storyId)
+    {
+
+        $getAnswers = new StoryManager;
+        $answers = $getAnswers->checkAnswers($_GET['StoryId']);
+        $transliterator = \Transliterator::create('NFD; [:Nonspacing Mark:] Remove; NFC');
+        $checkAnswer2 = $transliterator->transliterate($answers['answer2']);
+        $userAnswer2 = $transliterator->transliterate($_POST['dataPost2']);
+
+
+        if (isset($_POST['dataPost2'])) {
+
+
+            if ($checkAnswer2 == $userAnswer2) {
+
+                echo "super2";
+            } else {
+
+                echo "raté2";
+            }
+            return true;
+        } else {
+            echo ('loupé2');
+            return false;
+        }
+    }
+
+
+
+    public function verifyAnswer3($storyId)
+    {
+
+        $getAnswers = new StoryManager;
+        $answers = $getAnswers->checkAnswers($_GET['StoryId']);
+        $transliterator = \Transliterator::create('NFD; [:Nonspacing Mark:] Remove; NFC');
+        $checkAnswer3 = $transliterator->transliterate($answers['answer3']);
+        $userAnswer3 = $transliterator->transliterate($_POST['dataPost3']);
+
+
+        if (isset($_POST['dataPost3'])) {
+
+
+            if ($checkAnswer3 == $userAnswer3) {
+
+                echo "super3";
+            } else {
+
+                echo "raté3";
+            }
+            return true;
+        } else {
+            echo ('loupé3');
+            return false;
+        }
+    }
+
+
+
+    public function verifyAnswer4($storyId)
+    {
+
+        $getAnswers = new StoryManager;
+        $answers = $getAnswers->checkAnswers($_GET['StoryId']);
+        $transliterator = \Transliterator::create('NFD; [:Nonspacing Mark:] Remove; NFC');
+        $checkAnswer4 = $transliterator->transliterate($answers['answer4']);
+        $userAnswer4 = $transliterator->transliterate($_POST['dataPost4']);
+
+        if (isset($_POST['dataPost4'])) {
+
+            if ($checkAnswer4 == $userAnswer4) {
+
+                echo "super4";
+            } else {
+
+                echo "raté4";
+            }
+            return true;
+        } else {
+            echo ('loupé4');
+            return false;
+        }
+    }
+
+
+    public function verifyAnswerFinal($storyId)
+    {
+
+        $getAnswers = new StoryManager;
+        $answers = $getAnswers->checkAnswers($_GET['StoryId']);
+        $transliterator = \Transliterator::create('NFD; [:Nonspacing Mark:] Remove; NFC');
+        $checkAnswerFinal = $transliterator->transliterate($answers['finalAnswer']);
+        $userAnswerFinal = $transliterator->transliterate($_POST['dataPostFinal']);
+
+
+        if (isset($_POST['dataPost1']) || (isset($_POST['dataPost2']))) {
+
+
+            if ($checkAnswerFinal == $userAnswerFinal) {
+
+                echo "superFinal";
+            } else {
+
+                echo "ratéFinal";
+            }
+            return true;
+        } else {
+            echo ('loupéFinal');
+            return false;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+ <form method="post" id="question1" action="index.php?action=verifyAnswer1&StoryId=<?= $displayStory['StoryId'];
+                                                                                        ?>">
+        <div class="form-group">
+            <label><?= $displayStory['question1'];
+                    ?></label>
+            <input type="text" class="form-control" id="answer1" name="answer1" placeholder="Entrer la réponse">
+
+
+
+            <input type="submit" id="submit1" value="Vérifier la réponse" class="btn btn-default">
+
+
+        </div>
+    </form>
+
+
+    <!-- Question 2 -->
+
+
+    <form method="post" id="question2" action="index.php?action=verifyAnswer2&StoryId=<?= $displayStory['StoryId'];
+                                                                                        ?>">
+        <div class="form-group">
+            <label><?= $displayStory['question2'];
+                    ?></label>
+            <input type="text" class="form-control" id="answer2" name="answer2" placeholder="Entrer la réponse">
+
+
+
+            <input type="submit" id="submit2" value="Vérifier la réponse" class="btn btn-default">
+
+
+        </div>
+    </form>
+
+    <!-- Question 3 -->
+
+
+    <form method="post" id="question3" action="index.php?action=verifyAnswer3&StoryId=<?= $displayStory['StoryId'];
+                                                                                        ?>">
+        <div class="form-group">
+            <label><?= $displayStory['question3'];
+                    ?></label>
+            <input type="text" class="form-control" id="answer3" name="answer3" placeholder="Entrer la réponse">
+
+
+
+            <input type="submit" id="submit3" value="Vérifier la réponse" class="btn btn-default">
+
+
+        </div>
+    </form>
+
+    <!-- Question 4 -->
+
+
+    <form method="post" id="question4" action="index.php?action=verifyAnswer4&StoryId=<?= $displayStory['StoryId'];
+                                                                                        ?>">
+        <div class="form-group">
+            <label><?= $displayStory['question4'];
+                    ?></label>
+            <input type="text" class="form-control" id="answer4" name="answer4" placeholder="Entrer la réponse">
+
+
+
+            <input type="submit" id="submit4" value="Vérifier la réponse" class="btn btn-default">
+
+
+        </div>
+    </form>
+
+    <!-- Final Answer -->
+
+
+    <form method="post" id="finalQuestion" action="index.php?action=verifyAnswerFinal&StoryId=<?= $displayStory['StoryId'];
+                                                                                                ?>">
+        <div class="form-group">
+            <label><?= $displayStory['finalQuestion'];
+                    ?></label>
+            <input type="text" class="form-control" id="finalAnswer" name="finalAnswer" placeholder="Entrer la réponse">
+
+
+
+            <input type="submit" id="submitFinal" value="Vérifier la réponse" class="btn btn-default">
+
+
+        </div>
+    </form>
+
+
+
+
+
+
+
+
+
+    $(function() {
+  $("#myForm").on("submit", function() {
+    var post_url = $(this).attr("action");
+    $.ajax({
+      type: "post",
+      url: post_url,
+      data: { dataPost: $("#answer1").val() },
+      success: function(res) {
+        alert(res);
+        if (res == "successful") {
+          $("#status")
+            .html("Sent")
+            .slideDown();
+        } else {
+          $("#status")
+            .html("Failed")
+            .slideDown();
+        }
+      },
+      error: function() {
+        $("#status")
+          .html("Failed")
+          .slideDown();
+      }
+    });
+    return false;
+  });
+});
+
+// $(function() {
+//   $("#question2").on("submit2", function() {
+//     var post_url = $(this).attr("action");
+//     $.ajax({
+//       type: "post",
+//       url: post_url,
+//       data: { dataPost2: $("#answer2").val() },
+//       success: function(res) {
+//         alert(res);
+//         if (res == "successful") {
+//           $("#status")
+//             .html("Sent")
+//             .slideDown();
+//         } else {
+//           $("#status")
+//             .html("Failed")
+//             .slideDown();
+//         }
+//       },
+//       error: function() {
+//         $("#status")
+//           .html("Failed")
+//           .slideDown();
+//       }
+//     });
+//     return false;
+//   });
+// });
+
+// $(function() {
+//   $("#question3").on("submit3", function() {
+//     var post_url = $(this).attr("action");
+//     $.ajax({
+//       type: "post",
+//       url: post_url,
+//       data: { dataPost3: $("#answer3").val() },
+//       success: function(res) {
+//         alert(res);
+//         if (res == "successful") {
+//           $("#status")
+//             .html("Sent")
+//             .slideDown();
+//         } else {
+//           $("#status")
+//             .html("Failed")
+//             .slideDown();
+//         }
+//       },
+//       error: function() {
+//         $("#status")
+//           .html("Failed")
+//           .slideDown();
+//       }
+//     });
+//     return false;
+//   });
+// });
+
+// $(function() {
+//   $("#question4").on("submit4", function() {
+//     var post_url = $(this).attr("action");
+//     $.ajax({
+//       type: "post",
+//       url: post_url,
+//       data: { dataPost4: $("#answer4").val() },
+//       success: function(res) {
+//         alert(res);
+//         if (res == "successful") {
+//           $("#status")
+//             .html("Sent")
+//             .slideDown();
+//         } else {
+//           $("#status")
+//             .html("Failed")
+//             .slideDown();
+//         }
+//       },
+//       error: function() {
+//         $("#status")
+//           .html("Failed")
+//           .slideDown();
+//       }
+//     });
+//     return false;
+//   });
+// });
+
+// $(function() {
+//   $("#finalQuestion").on("submitFinal", function() {
+//     var post_url = $(this).attr("action");
+//     $.ajax({
+//       type: "post",
+//       url: post_url,
+//       data: { dataPostFinal: $("#finalAnswer").val() },
+//       success: function(res) {
+//         alert(res);
+//         if (res == "successful") {
+//           $("#status")
+//             .html("Sent")
+//             .slideDown();
+//         } else {
+//           $("#status")
+//             .html("Failed")
+//             .slideDown();
+//         }
+//       },
+//       error: function() {
+//         $("#status")
+//           .html("Failed")
+//           .slideDown();
+//       }
+//     });
+//     return false;
+//   });
+// });
+// function newFunction() {
+//   return "#finalQuestion";
+// }

@@ -80,7 +80,7 @@ class StoryController
         $fileExt = explode('.', $fileName);
         $fileActualExt = strtolower(end($fileExt));
 
-        $this->fileDestination = '/Users/jean-maryraffegeau/Documents/mampfolders/lfse/projet5_lfse/App/uploads/' . $fileName;
+        $this->fileDestination = 'App/uploads/' . $fileName;
         $allowed = 'mp4';
 
 
@@ -124,7 +124,7 @@ class StoryController
         $fileExt = explode('.', $fileName);
         $fileActualExt = strtolower(end($fileExt));
 
-        $this->fileDestination = '/lfse/projet5_lfse/App/uploads/' . $fileName;
+        $this->fileDestination = 'App/uploads/' . $fileName;
         $allowed = 'mp3';
 
 

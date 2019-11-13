@@ -144,6 +144,6 @@ class UserController
                 $error =  "Tous les champs doivent être complétés !";
             }
         }
-        // include 'App/Views/Frontend/SignInView.php';
+        include 'App/Views/Frontend/SignInView.php';
     }
 }

@@ -65,9 +65,24 @@ try {
                 } else {
                     throw new Exception("Erreur : aucun identifiant de billet envoyé");
                 }
-            } elseif ($action == 'verifyAnswer') {
+            } elseif ($action == 'verifyAnswer1') {
                 $verify = new GameController;
-                $answerCheck = $verify->verifyAnswers($_GET['StoryId']);
+                $answerCheck = $verify->verifyAnswer1($_GET['StoryId']);
+            } elseif ($action == 'verifyAnswer2') {
+                $verify = new GameController;
+                $answerCheck = $verify->verifyAnswer2($_GET['StoryId']);
+            } elseif ($action == 'verifyAnswer3') {
+                $verify = new GameController;
+                $answerCheck = $verify->verifyAnswer3($_GET['StoryId']);
+            } elseif ($action == 'verifyAnswer4') {
+                $verify = new GameController;
+                $answerCheck = $verify->verifyAnswer4($_GET['StoryId']);
+            } elseif ($action == 'verifyAnswerFinal') {
+                $verify = new GameController;
+                $answerCheck = $verify->verifyAnswerFinal($_GET['StoryId']);
+            } elseif ($action == 'success') {
+                $success = new GameController;
+                $playVideo = $success->playVideo($_GET['StoryId']);
             }
 
             // Admin Routes
