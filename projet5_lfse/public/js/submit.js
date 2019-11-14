@@ -94,8 +94,8 @@ $(function() {
       url: post_url,
       data: { dataPostFinal: $("#finalAnswer").val() },
       success: function(res) {
-        if (res != NaN) {
-          location.href = "index.php?action=home";
+        if (isNaN(res) === false) {
+          location.href = "index.php?action=success&StoryId=" + res;
         } else {
           $("#status5").html("Ce n'est pas la bonne réponse");
         }

@@ -93,7 +93,7 @@ class StoryManager extends DBConnectManager
     public function addSoundIsolate3($isolateSound3Path, $isolateSound3Name, $updateStoryId)
     {
         $db = $this->dbConnect();
-        $ins = $db->prepare('UPDATE StoryContent SET isolateSound3Path = ?, isolateSound2Name = ? WHERE StoryId = ?');
+        $ins = $db->prepare('UPDATE StoryContent SET isolateSound3Path = ?, isolateSound3Name = ? WHERE StoryId = ?');
         $soundPost = $ins->execute(array($isolateSound3Path, $isolateSound3Name, $updateStoryId));
         return $soundPost;
     }

@@ -31,13 +31,15 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/lfse/projet5_lfse/public/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+
     <!-- Tweaks for older IEs-->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 
-
+    <script src="/lfse/projet5_lfse/public/vendor/node_modules/trackswitch/dist/js/trackswitch.min.js"></script>
 </head>
+
 
 
 <body>
@@ -76,6 +78,8 @@
 
 
     <!-- JavaScript files-->
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.0.52/wavesurfer.min.js"></script>
 
     <script src="/lfse/projet5_lfse/public/vendor/node_modules/howler/dist/howler.js"></script>
     <script src="/lfse/projet5_lfse/public/vendor/node_modules/howler/dist/howler.core.min.js"></script>
@@ -92,8 +96,43 @@
     <script src="/lfse/projet5_lfse/vendor/src/sounds.js"></script>
     <script src="/lfse/projet5_lfse/public/js/submit.js"></script>
 
+
+
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            jQuery(".player").trackSwitch(); // All other players are default
+        });
+    </script>
+
     <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </body>
+<script>
+    var wavesurfer = WaveSurfer.create({
+
+        container: '#waveform',
+        waveColor: 'violet',
+        progressColor: 'purple'
+
+
+    });
+    var song = ('<?= $displayStory['MainSoundFinnPath'];
+                    ?>')
+
+    wavesurfer.load(song);
+
+    wavesurfer.on('ready', function() {
+        wavesurfer.play();
+    });
+    var song2 = ('<?= $displayStory['MainSoundPolicePath'];
+                    ?>')
+
+    wavesurfer.load(song2);
+
+    wavesurfer.on('ready', function() {
+        wavesurfer.play();
+    });
+</script>
 
 </html>
