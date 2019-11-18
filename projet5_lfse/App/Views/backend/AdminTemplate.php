@@ -10,11 +10,11 @@
     <title>La Mayenne sur Écoute</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/lfse/projet5_lfse/public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="/lfse/projet5_lfse/public/css/custom.css" />
-    <link href="/lfse/projet5_lfse/public/css/simple-sidebar.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/public/css/custom.css" />
+    <link href="/public/css/simple-sidebar.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -73,8 +73,8 @@
     <!-- /#wrapper -->
 
     <!-- Bootstrap core JavaScript -->
-    <script src="/lfse/projet5_lfse/public/vendor/jquery/jquery.min.js"></script>
-    <script src="/lfse/projet5_lfse/public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/public/vendor/jquery/jquery.min.js"></script>
+    <script src="/public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Menu Toggle Script -->
     <script>

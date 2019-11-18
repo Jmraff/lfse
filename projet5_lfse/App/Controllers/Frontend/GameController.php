@@ -8,17 +8,29 @@ use App\Models\StoryManager;
 
 class GameController
 {
+    public function legal()
+    {
 
+
+        require 'App/Views/Frontend/LegalPage.php';
+    }
     public function userConnected()
     {
 
 
         require 'App/Views/Frontend/GameHome.php';
     }
+    public function rules()
+    {
+
+
+        require 'App/Views/Frontend/Rules.php';
+    }
     public function listGames()
     {
         $loadStories = new StoryManager;
-        $displayStories = $loadStories->listStories();
+        $displayStories = $loadStories->listUserStories();
+        require 'App/Views/Frontend/GameHome.php';
     }
     public function displayStory($StoryId)
     {

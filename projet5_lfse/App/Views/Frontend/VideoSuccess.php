@@ -1,6 +1,13 @@
 <?php ob_start(); ?>
 
-<div class="row">
+<div class="row"> </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
     <h1>Bravo, vous avez retrouvé la trace de Louis Fynn</h1>
     </br>
     </br>

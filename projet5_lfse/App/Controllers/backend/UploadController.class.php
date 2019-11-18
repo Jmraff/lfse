@@ -21,7 +21,7 @@ class Upload
                 if ($fileSize < 8000000) {
 
 
-                    $fileDestination = '/Users/jean-maryraffegeau/Documents/mampfolders/lfse/projet5_lfse/App/uploads/' . $fileName;
+                    $fileDestination = '/Users/jean-maryraffegeau/Documents/mampfolders/App/uploads/' . $fileName;
 
                     $result = move_uploaded_file($fileTmpName, $fileDestination);
 

@@ -26,7 +26,7 @@
                     </thead>
                     <?php
 
-                    foreach ($list as $data) {
+                    foreach ($list as $data) :
 
 
                         ?>
@@ -43,21 +43,22 @@
                                     <p data-placement="top" href="index.php?action=deleteUser&userId=<?= $data['userId'] ?>" data-toggle="tooltip" title="delete"><button class="btn btn-danger btn-xs" data-title="delete" data-toggle="modal"><span class="glyphicon glyphicon-trash"></span></button></p>
                                 </td> -->
                             <?php
-                            }
+                            endforeach;
                             // $list->closeCursor();
 
 
                             ?>
 
                             <?php
-                            for ($i = 1; $i <= $totalPages; $i++) {
+                            for ($i = 1; $i <= $totalPages; $i++) :
 
-                                if ($i == $currentPage) {
+                                if ($i == $currentPage) :
                                     echo $i . ' ';
-                                } else {
+
+                                else :
                                     echo '<a href="index.php?action=adminListUsers&page=' . $i . '">' . $i . '</a> ';
-                                }
-                            }
+                                endif;
+                            endfor;
                             ?>
 
                             </tr>

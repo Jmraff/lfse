@@ -3,7 +3,7 @@
 
 <div class="container">
     <?php
-    while ($data = $listStories->fetch()) {
+    while ($data = $listStories->fetch()) :
         ?>
 
 
@@ -23,8 +23,9 @@
 
 
     <?php
-    }
+    endwhile;
     $listStories->closeCursor();
+
     ?>
     <?php $content = ob_get_clean(); ?>
 

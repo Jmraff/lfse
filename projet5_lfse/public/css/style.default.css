@@ -92,11 +92,11 @@ section {
   width: 2.8rem;
   margin: 0.5rem 0;
   height: 1px;
-  background: #2b90d9;
+  background: #ff565b;
 }
 
 .lined-primary::after {
-  background: #2b90d9;
+  background: #ff565b;
 }
 
 .lined-secondary::after {
@@ -131,14 +131,14 @@ section {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  border: 1px solid #2b90d9;
+  border: 1px solid #ff565b;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
   align-items: center;
   -ms-flex-pack: center;
   justify-content: center;
-  color: #2b90d9;
+  color: #ff565b;
   font-size: 2.5rem;
 }
 
@@ -162,7 +162,7 @@ section {
 *
 */
 .navbar-brand {
-  color: #2b90d9;
+  color: #ff565b;
   transition: all 0.3s;
 }
 
@@ -181,14 +181,14 @@ section {
 .navbar .nav-link:hover,
 .navbar .nav-link:focus,
 .navbar .nav-link.active {
-  color: #2b90d9;
+  color: #ff565b;
 }
 
 @media (min-width: 992px) {
   .navbar .nav-link:hover,
   .navbar .nav-link:focus,
   .navbar .nav-link.active {
-    border-color: #2b90d9;
+    border-color: #ff565b;
   }
 }
 
@@ -232,8 +232,8 @@ section {
 
 .social-link:hover,
 .social-link:focus {
-  border-color: #2b90d9;
-  color: #2b90d9;
+  border-color: #ff565b;
+  color: #ff565b;
   text-decoration: none;
 }
 
@@ -432,11 +432,11 @@ STYLE SWITCHER FOR DEMO
 
 .btn-link {
   font-weight: 400;
-  color: #2b90d9;
+  color: #ff565b;
 }
 
 .btn-link:hover {
-  color: #1c669c;
+  color: #792225;
   text-decoration: underline;
 }
 
@@ -452,14 +452,14 @@ STYLE SWITCHER FOR DEMO
 
 .btn-primary {
   color: #fff;
-  background-color: #2b90d9;
-  border-color: #2b90d9;
+  background-color: #ff565b;
+  border-color: #ff565b;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #227bbc;
-  border-color: #2074b1;
+  background-color: #792225;
+  border-color: #792225;
 }
 
 .btn-primary:focus,
@@ -470,8 +470,8 @@ STYLE SWITCHER FOR DEMO
 .btn-primary.disabled,
 .btn-primary:disabled {
   color: #fff;
-  background-color: #2b90d9;
-  border-color: #2b90d9;
+  background-color: #ff565b;
+  border-color: #ff565b;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active,
@@ -755,16 +755,16 @@ STYLE SWITCHER FOR DEMO
 }
 
 .btn-outline-primary {
-  color: #2b90d9;
+  color: #ff565b;
   background-color: transparent;
   background-image: none;
-  border-color: #2b90d9;
+  border-color: #ff565b;
 }
 
 .btn-outline-primary:hover {
   color: #fff;
-  background-color: #2b90d9;
-  border-color: #2b90d9;
+  background-color: #ff565b;
+  border-color: #ff565b;
 }
 
 .btn-outline-primary:focus,
@@ -774,7 +774,7 @@ STYLE SWITCHER FOR DEMO
 
 .btn-outline-primary.disabled,
 .btn-outline-primary:disabled {
-  color: #2b90d9;
+  color: #ff565b;
   background-color: transparent;
 }
 
@@ -782,8 +782,8 @@ STYLE SWITCHER FOR DEMO
 .btn-outline-primary:not(:disabled):not(.disabled).active,
 .show > .btn-outline-primary.dropdown-toggle {
   color: #fff;
-  background-color: #2b90d9;
-  border-color: #2b90d9;
+  background-color: #ff565b;
+  border-color: #ff565b;
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus,
@@ -1060,7 +1060,7 @@ STYLE SWITCHER FOR DEMO
 
 .btn-outline-light:hover,
 .btn-outline-light:focus {
-  color: #2b90d9;
+  color: #ff565b;
 }
 
 .btn-lg {
@@ -1090,7 +1090,7 @@ body {
 }
 
 a {
-  color: #2b90d9;
+  color: #ff565b;
   text-decoration: none;
 }
 
@@ -1198,7 +1198,7 @@ mark,
   padding: 0.5rem 1rem;
   margin-bottom: 2rem;
   font-size: 0.95rem;
-  border-left: 5px solid #2b90d9;
+  border-left: 5px solid #ff565b;
 }
 
 .blockquote-footer {
@@ -1210,7 +1210,7 @@ mark,
 }
 
 .text-primary {
-  color: #2b90d9 !important;
+  color: #ff565b !important;
 }
 
 a.text-primary:hover,
@@ -1233,8 +1233,8 @@ a.text-primary:focus {
 
 .page-item.active .page-link {
   color: #fff;
-  background-color: #2b90d9;
-  border-color: #2b90d9;
+  background-color: #ff565b;
+  border-color: #ff565b;
 }
 
 .page-item.disabled .page-link {
@@ -1246,7 +1246,7 @@ a.text-primary:focus {
 .page-link {
   padding: 0.5rem 0.75rem;
   line-height: 1.25;
-  color: #2b90d9;
+  color: #ff565b;
   background-color: #fff;
   border: 1px solid #dee2e6;
 }
@@ -1301,7 +1301,7 @@ a.text-primary:focus {
 * 5. UTILITIES
 */
 .bg-primary {
-  background-color: #2b90d9 !important;
+  background-color: #ff565b !important;
 }
 
 a.bg-primary:hover,
@@ -1389,7 +1389,7 @@ button.bg-dark:focus {
 }
 
 .border-primary {
-  border-color: #2b90d9 !important;
+  border-color: #ff565b !important;
 }
 
 .border-secondary {
@@ -1421,7 +1421,7 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-  color: #2b90d9 !important;
+  color: #ff565b !important;
 }
 
 a.text-primary:hover,
@@ -1494,7 +1494,7 @@ a.text-dark:focus {
 
 .badge-primary {
   color: #fff;
-  background-color: #2b90d9;
+  background-color: #ff565b;
 }
 
 .badge-primary[href]:hover,
@@ -1924,7 +1924,7 @@ select.form-control-lg:not([size]):not([multiple]) {
 
 .custom-control-input:checked ~ .custom-control-label::before {
   color: #fff;
-  background-color: #2b90d9;
+  background-color: #ff565b;
 }
 
 .custom-control-input:focus ~ .custom-control-label::before {
@@ -1949,7 +1949,7 @@ select.form-control-lg:not([size]):not([multiple]) {
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
-  background-color: #2b90d9;
+  background-color: #ff565b;
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
@@ -1959,7 +1959,7 @@ select.form-control-lg:not([size]):not([multiple]) {
 .custom-checkbox
   .custom-control-input:indeterminate
   ~ .custom-control-label::before {
-  background-color: #2b90d9;
+  background-color: #ff565b;
 }
 
 .custom-checkbox
@@ -1985,7 +1985,7 @@ select.form-control-lg:not([size]):not([multiple]) {
 }
 
 .custom-radio .custom-control-input:checked ~ .custom-control-label::before {
-  background-color: #2b90d9;
+  background-color: #ff565b;
 }
 
 .custom-radio .custom-control-input:checked ~ .custom-control-label::after {
@@ -2057,7 +2057,7 @@ code {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #2b90d9;
+  background-color: #ff565b;
 }
 
 /*
@@ -2198,7 +2198,7 @@ code {
 .dropdown-item.active,
 .dropdown-item:active {
   color: #fff;
-  background-color: #2b90d9;
+  background-color: #ff565b;
 }
 
 .dropdown-item.disabled,

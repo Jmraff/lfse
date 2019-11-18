@@ -110,7 +110,7 @@
 <form method="POST" action="index.php?action=updateQuestion4&StoryId=<?= $displayEditStory['StoryId'] ?>">
     <input type="text" id="question" name="new_question4" placeholder="Question 4" value="<?= $displayEditStory['question4'] ?>">
 
-    <input id="question" name="new_answer4" placeholder="Réponse 4"><?= $displayEditStory['answer4'] ?><br />
+    <input id="question" name="new_answer4" placeholder="Réponse 4" value="<?= $displayEditStory['answer4'] ?>"><br />
 
     <input type="submit" name="submit_question4" value="Valider la question" />
 </form>

@@ -14,8 +14,10 @@ try {
         if ($action == 'home') {
             $home = new UserController;
             $goHome = $home->home();
+        } elseif ($action == 'legal') {
 
-
+            $displayLegal = new GameController;
+            $legal = $displayLegal->legal();
 
 
             // Connection routes
@@ -36,16 +38,15 @@ try {
             $checkConnect = new UserController;
 
             $connectUser = $checkConnect->userConnect();
+
             if ($_SESSION['isAdmin'] == '1') { // check if Admin connect
 
                 header('location: index.php?action=adminHome'); // if admin is connected, redirect to admin Homepage
-            } else {
+            } elseif ($_SESSION['isAdmin'] == '0') {
 
-                header("Location: index.php?action=home"); // if not redirect to user homepage
+                header("Location: index.php?action=gameHome"); // if not redirect to user homepage
 
             }
-            // header("Location: index.php?action=home"); // if not redirect to user homepage
-
         } elseif ($action == 'disconnect') {
             // if (isset($_SESSION['userId'])) {
             $kill = new UserController;
@@ -53,10 +54,6 @@ try {
             $sessionKill = $kill->disconnect();
             header("Location: index.php?action=home");
             // }
-        } elseif ($action == 'listStories') {
-
-            $displayStories = new GameController;
-            $display_stories = $displayStories->listGames();
         } elseif (($_SESSION['isAdmin'] == '0') && (!empty($_SESSION['userId']))) {
             if ($action == 'displayStory') {
                 if (isset($_GET['StoryId']) && !empty($_GET['StoryId'])) {
@@ -65,6 +62,12 @@ try {
                 } else {
                     throw new Exception("Erreur : aucun identifiant de billet envoyé");
                 }
+            } elseif ($action == 'gameHome') {
+                $listUsersStories = new GameController;
+                $userStories = $listUsersStories->listGames();
+            } elseif ($action == 'rules') {
+                $rules = new GameController;
+                $checkRules = $rules->rules();
             } elseif ($action == 'verifyAnswer1') {
                 $verify = new GameController;
                 $answerCheck = $verify->verifyAnswer1($_GET['StoryId']);

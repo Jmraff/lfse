@@ -42,12 +42,12 @@ class UserManager extends DBConnectManager
         $insertmbr->execute(array($pseudo, $mail, $pass, $region));
         return $insertmbr;
     }
-    public function userConnect()
+    public function userConnect($mailConnect)
     {
         $db = $this->dbConnect();
         $reqpass = $db->prepare("SELECT userId, username, email, pass, isAdmin FROM Users WHERE email = ? ");
-        $reqpass->execute(array(htmlspecialchars($_POST['pseudoconnect'])));
-        // $userexist = $reqpass->rowCount();
+        $reqpass->execute(array($mailConnect));
+
         return $reqpass;
     }
     public function nbUsers()
@@ -67,18 +67,7 @@ class UserManager extends DBConnectManager
     public function listUsers($start, $usersPerPage)
     {
         $db = $this->dbConnect();
-        // $usersPerPage = 10;
 
-
-
-
-        // $totalPages = ceil($nbUsers / $usersPerPage);
-
-
-
-        // $currentPage = $_GET['page'];
-
-        // $start = ($currentPage - 1) * $usersPerPage;
 
         $reqmailusers = $db->prepare('SELECT * FROM Users WHERE isAdmin = 0 ORDER BY email DESC LIMIT ' . $start . ',' . $usersPerPage);
         $reqmailusers->execute(array());

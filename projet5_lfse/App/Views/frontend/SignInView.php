@@ -8,12 +8,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-9 col-lg-8 mx-auto">
-                            <h3 class="login-heading mb-4">Bienvenue</h3>
-                            <form method="post" action="index.php?action=userConnect">
+                            <h3 id="welcomeSignin" class="login-heading mb-4">Bienvenue</h3>
+                            <form method="post" id="connectAccountId" action="index.php?action=userConnect">
 
                                 <div class="form-label-group">
-                                    <input type="email" id="inputEmail" class="form-control" name="pseudoconnect" placeholder="Email" required autofocus>
-                                    <label for="inputEmail">Email</label>
+                                    <input type="email" id="emailConnectId" class="form-control" name="emailConnectName" placeholder="Email" required>
+                                    <label for="emailConnectId">Email</label>
+
                                 </div>
 
 
@@ -23,14 +24,11 @@
                                 </div>
 
 
-                                <input class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" name="formconnection" type="submit">
-                                <div class="text-center">
-                                    <a class="small" href="#">Forgot password?</a></div>
-                                <?php
-                                if (isset($error)) {
-                                    echo '<font color="red">' . $error . "</font>";
-                                }
-                                ?>
+                                <input id="connectButton" class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" placeholder="J'Y VAISs" name="formconnection" type="submit">
+                                <div id="errorSignIn">
+
+
+                                </div>
                             </form>
                         </div>
                     </div>

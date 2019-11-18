@@ -5,6 +5,7 @@ namespace App\Controllers\Frontend;
 require "vendor/autoload.php";
 
 use App\Models\UserManager;
+use Exception;
 
 class UserController
 {
@@ -38,20 +39,33 @@ class UserController
     {
 
         $usermanager = new UserManager;
+        $userForm = $_POST['formData'];
 
-        if (isset($_POST['forminscription'])) {
+        $userForm = array();
+        parse_str($_POST['formData'], $userForm);
+        echo $userForm['input1']; //Outputs 'meeting
+
+
+        if (isset($userForm)) {
+
+
+
+
+
             //protect html entries
-            $pseudo = htmlspecialchars($_POST['pseudo']);
-            $mail = htmlspecialchars($_POST['mail']);
-            $mail2 = htmlspecialchars($_POST['mail2']);
-            $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-            $region = htmlspecialchars($_POST['locality']);
-
+            $pseudo = htmlspecialchars($userForm['pseudo']);
+            $mail = htmlspecialchars($userForm['mail']);
+            $mail2 = htmlspecialchars($userForm['mail2']);
+            $pass = htmlspecialchars($userForm['pass']);
+            $pass2 = htmlspecialchars($userForm['pass2']);
+            $region = htmlspecialchars($userForm['locality']);
 
 
             // check if all fields are not empty
-            if (!empty($_POST['pseudo']) and !empty($_POST['mail']) and !empty($_POST['mail2']) and !empty($_POST['pass']) and !empty($_POST['pass2']) and !empty($_POST['locality'])) {
+            if (!empty($pseudo) && !empty($mail) && !empty($mail2) && !empty($pass) && !empty($pass2) && !empty($region)) {
                 $pseudolength = strlen($pseudo);
+
+
                 if ($pseudolength <= 255) {
                     if ($mail == $mail2) {
                         if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
@@ -67,31 +81,43 @@ class UserController
 
 
                             if (($reqmail == 0) && ($reqpseudo == 0)) {
-                                if ($_POST['pass'] == $_POST['pass2']) {
+                                if ($pass == $pass2) {
+                                    $pass = password_hash($userForm['pass'], PASSWORD_DEFAULT);
                                     $usermanager->createUser($pseudo, $mail, $pass, $region);
+                                    echo 'create';
                                 } else {
-                                    $error = "Vos mots de passe ne correspondent pas !";
+                                    // $error = "Vos mots de passe ne correspondent pas !";
+                                    echo 'passDiffer';
                                 }
                             } else {
                                 if ($reqmail != 0) {
-                                    $error = "Adresse mail déjà utilisée !";
+                                    // $error = "Adresse mail déjà utilisée !";
+                                    echo 'mailUsed';
                                 } else {
-                                    $error = "Pseudo déjà utilisé !";
+                                    // $error = "Pseudo déjà utilisé !";
+                                    echo 'pseudoUsed';
                                 }
                             }
                         } else {
-                            $error = "Votre adresse mail n'est pas valide !";
+                            // $error = "Votre adresse mail n'est pas valide !";
+                            echo 'invalidMail';
                         }
                     } else {
-                        $error = "Vos adresses mail ne correspondent pas !";
+                        // $error = "Vos adresses mail ne correspondent pas !";
+                        echo 'mailDiffer';
                     }
                 } else {
-                    $error = "Votre pseudo ne doit pas dépasser 255 caractères !";
+                    // $error = "Votre pseudo ne doit pas dépasser 255 caractères !";
+                    echo 'tooLong';
                 }
             } else {
-                $error = "Tous les champs doivent être complétés !";
+                // $error = "Tous les champs doivent être complétés !";
+                echo 'empty';
             }
-            // require 'App/Views/Frontend/SignUpView.php';
+            return true;
+        } else {
+            echo ('loupé1');
+            return false;
         }
     }
     public function userConnect()
@@ -99,15 +125,18 @@ class UserController
 
         $usermanager = new UserManager;
 
+        $connectForm = $_POST['connectData'];
 
-
-        if (isset($_POST['formconnection'])) {
+        $connectForm = array();
+        parse_str($_POST['connectData'], $connectForm);
+        echo $connectForm['input1']; //Outputs 'meeting
+        if (isset($connectForm)) {
             //secure html entries
-            $pseudoconnect = htmlspecialchars($_POST['pseudoconnect']);
+            $mailConnect = htmlspecialchars($connectForm['emailConnectName']);
 
-            if (!empty($pseudoconnect) and !empty($_POST['passconnect'])) {
+            if (!empty($mailConnect) && !empty($connectForm['passconnect'])) {
 
-                $checkuser = $usermanager->userConnect();
+                $checkuser = $usermanager->userConnect($mailConnect);
 
                 $userexist = $checkuser->rowCount();
 
@@ -116,15 +145,7 @@ class UserController
                 if ($userexist != 0) {
 
                     $userCheck = $checkuser->fetch();
-
-
-
-
-                    $mdpconnect = password_verify($_POST['passconnect'], $userCheck['pass']);
-
-
-
-
+                    $mdpconnect = password_verify($connectForm['passconnect'], $userCheck['pass']);
                     if ($mdpconnect == true) {
 
 
@@ -133,17 +154,26 @@ class UserController
                         $_SESSION['username'] = $userCheck['username'];
                         $_SESSION['email'] = $userCheck['email'];
                         $_SESSION['isAdmin'] = $userCheck['isAdmin'];
-                        var_dump($_SESSION['userId'], $_SESSION['username'],  $_SESSION['email'], $_SESSION['isAdmin']);
-                    } else {
-                        $error  = "Le mot de passe est incorrect!";
+                        if ($_SESSION['isAdmin'] == 1) {
+                            echo 'adminConnect';
+                        } else {
+                            echo 'userConnect';
+                        }
                     }
                 } else {
-                    $error  = "Le mail n'existe pas !";
+
+
+                    echo 'connectFailure';
                 }
             } else {
-                $error =  "Tous les champs doivent être complétés !";
+                echo 'emptyField';
             }
+            return true;
         }
-        include 'App/Views/Frontend/SignInView.php';
+
+
+
+
+        // include 'App/Views/Frontend/SignInView.php';
     }
 }

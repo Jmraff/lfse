@@ -17,6 +17,15 @@ class StoryManager extends DBConnectManager
 
         return $list;
     }
+    public function listUserStories()
+    {
+        $db = $this->dbConnect();
+
+
+        $list = $db->query('SELECT * FROM StoryContent WHERE published = 1 ORDER BY StoryId DESC');
+
+        return $list;
+    }
     public function displaySingleStory($StoryId)
     {
         $db = $this->dbConnect();
